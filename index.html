@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="section">
+      <h1 class="section_title">Allenaz srl</h1>
+      <div class="button">
+        <button class="button_item" type="submit">START</button>
+        <button class="button_item">STOP</button>
+        <button class="button_item">RESTART</button>
+      </div>
+      <div class="container">
+        <div class="data">
+          <ul class="data_list">
+            <h2 class="data_title">Axis 1</h2>
+            <h3 class="data_title_sub">Live data</h3>
+            <li>Data: <span id="data"></span></li>
+            <li>Parity: <span id="parity"></span></li>
+            <li>Error: <span id="error"></span></li>
+            <li>Warning: <span id="warning"></span></li>
+            <li>Driver state: <span id="driverState"></span></li>
+            <li>Working mode: <span id="workingMode"></span></li>
+            <li>Motion on going: <span id="motionOnGoing"></span></li>
+            <li>On target position: <span id="onTargetPosition"></span></li>
+            <li>Actual position: <span id="actualPosition"></span></li>
+            <li>Actual torque: <span id="actualTorque"></span></li>
+            <li>
+              Actual frequency: <span id="actualFrequency">123123123</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="data">
+          <ul class="data_list">
+            <h2 class="data_title">Axis 2</h2>
+            <h3 class="data_title_sub">Live data</h3>
+            <li>Data: <span id="data"></span></li>
+            <li>Parity: <span id="parity"></span></li>
+            <li>Error: <span id="error"></span></li>
+            <li>Warning: <span id="warning"></span></li>
+            <li>Driver state: <span id="driverState"></span></li>
+            <li>Working mode: <span id="workingMode"></span></li>
+            <li>Motion on going: <span id="motionOnGoing"></span></li>
+            <li>On target position: <span id="onTargetPosition"></span></li>
+            <li>Actual position: <span id="actualPosition"></span></li>
+            <li>Actual torque: <span id="actualTorque"></span></li>
+            <li>
+              Actual frequency: <span id="actualFrequency">123123123</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="data">
+          <ul class="data_list">
+            <h2 class="data_title">Axis 3</h2>
+            <h3 class="data_title_sub">Live data</h3>
+            <li>Data: <span id="data"></span></li>
+            <li>Parity: <span id="parity"></span></li>
+            <li>Error: <span id="error"></span></li>
+            <li>Warning: <span id="warning"></span></li>
+            <li>Driver state: <span id="driverState"></span></li>
+            <li>Working mode: <span id="workingMode"></span></li>
+            <li>Motion on going: <span id="motionOnGoing"></span></li>
+            <li>On target position: <span id="onTargetPosition"></span></li>
+            <li>Actual position: <span id="actualPosition"></span></li>
+            <li>Actual torque: <span id="actualTorque"></span></li>
+            <li>
+              Actual frequency: <span id="actualFrequency">123123123</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="data">
+          <ul class="data_list">
+            <h2 class="data_title">Axis 4</h2>
+            <h3 class="data_title_sub">Live data</h3>
+            <li>Data: <span id="data"></span></li>
+            <li>Parity: <span id="parity"></span></li>
+            <li>Error: <span id="error"></span></li>
+            <li>Warning: <span id="warning"></span></li>
+            <li>Driver state: <span id="driverState"></span></li>
+            <li>Working mode: <span id="workingMode"></span></li>
+            <li>Motion on going: <span id="motionOnGoing"></span></li>
+            <li>On target position: <span id="onTargetPosition"></span></li>
+            <li>Actual position: <span id="actualPosition"></span></li>
+            <li>Actual torque: <span id="actualTorque"></span></li>
+            <li>
+              Actual frequency: <span id="actualFrequency">123123123</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="canvas_container">
+        <div class="canvas">
+          <h2 class="section_title">Position</h2>
+          <canvas class="canvas_item" id="position"></canvas>
+        </div>
+        <div class="canvas">
+          <h2 class="section_title">Speed</h2>
+          <canvas class="canvas_item" id="speed"></canvas>
+        </div>
+        <div class="canvas">
+          <h2 class="section_title">Cartesian Position</h2>
+          <canvas class="canvas_item" id="cartesian"></canvas>
+        </div>
+      </div>
+    </section>
+    <script>
+      var ctx = document.getElementById("position").getContext("2d");
+      var myChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ],
+          datasets: [
+            {
+              data: [86, 114, 106, 106, 107, 111, 133],
+              label: "Axis 1",
+              borderColor: "#3e95cd",
+              backgroundColor: "#7bb6dd",
+              fill: false,
+            },
+            {
+              data: [70, 90, 44, 60, 83, 90, 100],
+              label: "Axis 2",
+              borderColor: "#3cba9f",
+              backgroundColor: "#71d1bd",
+              fill: false,
+            },
+            {
+              data: [10, 21, 60, 44, 17, 21, 17],
+              label: "Axis 3",
+              borderColor: "#ffa500",
+              backgroundColor: "#ffc04d",
+              fill: false,
+            },
+            {
+              data: [6, 3, 2, 2, 7, 0, 16],
+              label: "Axis 4",
+              borderColor: "#c45850",
+              backgroundColor: "#d78f89",
+              fill: false,
+            },
+          ],
+        },
+      });
+    </script>
+    <script>
+      var ctx = document.getElementById("speed").getContext("2d");
+      var myChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ],
+          datasets: [
+            {
+              data: [86, 114, 106, 106, 107, 111, 133],
+              label: "Axis 1",
+              borderColor: "rgb(62,149,205)",
+              backgroundColor: "rgb(62,149,205,0.1)",
+            },
+            {
+              data: [70, 90, 44, 60, 83, 90, 100],
+              label: "Axis 2",
+              borderColor: "rgb(60,186,159)",
+              backgroundColor: "rgb(60,186,159,0.1)",
+            },
+            {
+              data: [10, 21, 60, 44, 17, 21, 17],
+              label: "Axis 3",
+              borderColor: "rgb(255,165,0)",
+              backgroundColor: "rgb(255,165,0,0.1)",
+            },
+            {
+              data: [6, 3, 2, 2, 7, 0, 16],
+              label: "Axis 4",
+              borderColor: "rgb(196,88,80)",
+              backgroundColor: "rgb(196,88,80,0.1)",
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>
